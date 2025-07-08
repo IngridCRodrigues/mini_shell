@@ -45,7 +45,7 @@ Olá Mundo!
 > echo Primeira Linha > arquivo.txt
 (Criou um arquivo com o conteúdo: Primeira Linha de Código)
 
-> echo Primeira Linha > arquivo.txt
+> echo Primeira Linha >> arquivo.txt
 (Adicionou ao arquivo o conteúdo: Segunda Linha de Código)
 
 > wc -l < arquivo.txt
@@ -54,12 +54,15 @@ Olá Mundo!
 > echo oi >>> arquivo 
 Erro de sintaxe! Operadores de redirecionamento inválidos!
 
+> echo oi > > arquivo 
+Erro de sintaxe! Operadores de redirecionamento inválidos!
+
  ```
 
-### Demonstração 
-Vídeo de demonstração [aqui]
+## Demonstração 
+Vídeo de demonstração [aqui] (https://youtu.be/wYRuT0kq93s)
 
-### Limitações conhecidas 
+## Limitações conhecidas 
 - Espera comandos bem formatados
 - Não foi implementado o uso de pipes 
 - Não é compatível com multiplos redirecionamentos 
