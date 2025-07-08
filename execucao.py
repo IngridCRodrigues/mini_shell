@@ -17,7 +17,7 @@ def executar_comando(entrada):
         argumentos = comando.split()
 
         if not argumentos or not arquivo:
-            os.write(1, "Comando inválido!\n".encode())
+            os.write(1, "Comando inválido!\n".encode()) #indica ao descritor de arquivo o que escrever
             return
         
         try:
@@ -28,7 +28,7 @@ def executar_comando(entrada):
                     os.dup2(r_saida, 1) #ao inves de apontar pra tela, o descritor aponta pro arquivo r_saida
                     os.execvp(argumentos[0], argumentos)      
                 elif operador == '>':        
-                    r_saida = os.open(arquivo, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o644)
+                    r_saida = os.open(arquivo, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o644) #subscreve
                     os.dup2(r_saida, 1)
                     os.execvp(argumentos[0], argumentos) 
                 elif operador == '<':       #testa redirecionamento de entrada  
@@ -36,7 +36,7 @@ def executar_comando(entrada):
                     os.dup2(r_entrada, 0)
                     os.execvp(argumentos[0], argumentos) 
             else:
-                os.wait()
+                os.wait() #processo pai espera 
         except Exception as e:
             os.write(1,f"Erro: {str(e)}\n".encode())
 
